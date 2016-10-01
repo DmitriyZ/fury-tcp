@@ -1,0 +1,37 @@
+<configuration>
+
+    <timestamp key="bySecond" datePattern="yyyyMMdd_HHmmss"/>
+
+    <logger name="org.apache.mina.core.service" level="OFF"/>
+    <logger name="ch.qos.logback" level="WARN"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT-NO-FORMAT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/emulator-${bySecond}.txt</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="ru.zaets.home.fury.producer.handler.StatisticClientSessionHandler" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT-NO-FORMAT"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <root level="DEBUG">
+        <!--если надо чтоб подробный лог выводился в консоль-->
+        <!--<appender-ref ref="STDOUT"/>-->
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
