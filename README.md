@@ -1,5 +1,5 @@
-Fury TCP producer can generate maximum number of simultaneous TCP.
-By one TCP Fury App it's can be 50k simultaneous connections.
+Fury TCP producer can generate maximum number of simultaneous TCP connections.
+One TCP Fury App can hold only 50k simultaneous connections.
 
 Use:
     run main method in Main class.
